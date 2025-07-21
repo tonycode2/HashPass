@@ -1,8 +1,6 @@
 package com.hashpass.HashPass.security.user;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
+import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -14,7 +12,10 @@ import java.util.Objects;
 @Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = {"username"})})
 public class Users implements UserDetails {
 
+    @Id
+    @GeneratedValue
     Integer id;
+    @Column(nullable = false)
     String username;
     String password;
     Role role;
