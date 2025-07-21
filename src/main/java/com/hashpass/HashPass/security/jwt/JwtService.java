@@ -40,7 +40,7 @@ public class JwtService {
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
-    public getUsernameFromToken(String token){
+    public String getUsernameFromToken(String token){
         return getClaim(token, Claims::getSubject);
     }
     public boolean isTokenValid(String token, UserDetails userDetails){
